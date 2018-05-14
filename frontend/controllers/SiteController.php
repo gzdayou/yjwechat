@@ -140,7 +140,7 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        //var_dump( Yii::$app->wechat ) ;exit;
+        die("bbbbbbbbb");
         Yii::$app->wechat->server->setMessageHandler(function ($message) {
             return "您好！欢迎关注我!";
         });
