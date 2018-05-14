@@ -12,7 +12,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
-//use \Overtrue\Socialite\User;
+use yii\log\Logger;
 
 /**
  * Site controller
@@ -73,7 +73,12 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $openid = 'oS3Pst1L5lYan8SK0YFzWKmE1Bls';
+        $message = 'hello wechat';
+        $result = Yii::$app->wechat->staff->message($message)->to($openid)->send();
+        
+        var_dump($result);
+        die;
     }
 
     /**

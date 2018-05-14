@@ -19,7 +19,8 @@ return [
 			// 'returnUrlParam' => '' # returnUrl param stored in session
 		],
         'request' => [
-            'csrfParam' => '_csrf-frontend',
+            //'csrfParam' => '_csrf-frontend',
+            'enableCookieValidation' => false,
         ],
         'user' => [
             'identityClass' => 'common\models\User',
