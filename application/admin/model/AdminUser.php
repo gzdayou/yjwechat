@@ -168,11 +168,6 @@ class AdminUser extends Model
             $login['role_id'] = $user->role_id;
             $login['role_name'] = $role['name'];
             $login['nick'] = $user->nick;
-            if ($user->iframe == 1) {
-                cookie('hisi_iframe', 'yes');
-            } else {
-                cookie('hisi_iframe', null);
-            }
             // 缓存角色权限
             session('role_auth_'.$user->role_id, $user['auth'] ? json_decode($user['auth'], true) : json_decode($role['auth'], true));
             // 缓存登录信息

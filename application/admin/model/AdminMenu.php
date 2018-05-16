@@ -209,7 +209,7 @@ class AdminMenu extends Model
             $model      = request()->module();
             $controller = request()->controller();
             $action     = request()->action();
-            $map['url'] = $model.'/'.$controller.'/'.$action;
+            $map['url'] = $model.'/'.$controller.'/'.$action;//$map['url'] = 'admin/index/welcome';
         } else {
             $map['id'] = (int)$id;
         }

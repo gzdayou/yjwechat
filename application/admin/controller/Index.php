@@ -13,7 +13,7 @@ class Index extends Admin
     public function setting() 
     {
         $menu = AdminMenu::getMainMenu() ;
-        var_dump($menu);
+        var_dump($menu);exit;
         return $this->fetch();
     }
 }

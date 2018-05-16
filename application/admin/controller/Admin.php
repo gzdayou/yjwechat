@@ -42,7 +42,7 @@ class Admin extends Controller
         
         $c_menu = MenuModel::getInfo();
         if (!$c_menu) {
-            return $this->error('节点不存在或者已禁用！');
+            //return $this->error('节点不存在或者已禁用！');
         }
 
         // 检查权限
@@ -83,7 +83,7 @@ class Admin extends Controller
             $_bread_crumbs = MenuModel::getBrandCrumbs($c_menu['id']);
             $this->assign('_bread_crumbs', $_bread_crumbs);
             // 获取当前访问的节点的顶级节点
-            $this->assign('_admin_menu_parents', current($_bread_crumbs));
+            $this->assign('_admin_menu_parents', is_array($_bread_crumbs) ? current($_bread_crumbs) : 1);
             // 获取导航菜单
             $this->assign('_admin_menu', MenuModel::getMainMenu());
             // 分组切换类型 0单个分组[有链接]，1分组切换[有链接]，2分组切换[无链接]，3无需分组切换，具体请看后台layout.php
