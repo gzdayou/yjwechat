@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>管理控制台 -  Powered by HisiPHP</title>
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+    <link rel="stylesheet" href="__STATIC__/layui/css/layui.css">
+    <link rel="stylesheet" href="__STATIC__/style.css">
+    <!-- <link rel="stylesheet" href="min.css">
+    <link rel="stylesheet" href="fonts-min.css"> -->
+</head>
+<body>
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header" style="z-index:999!important;">
+        <div class="fl header-logo">管理控制台</div>
+        <div class="fl header-fold"><a href="javascript:;" title="打开/关闭左侧导航" class="aicon ai-caidan" id="foldSwitch"></a></div>
+        <ul class="layui-nav fl nobg main-nav">
+            <li class="layui-nav-item layui-this">
+                <a href="javascript:;">首页</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">系统</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">插件</a>
+            </li>
+        </ul>
+        <ul class="layui-nav fr nobg head-info">
+            <li class="layui-nav-item">
+                <a href="javascript:void(0);">超级管理员&nbsp;&nbsp;</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="/hisiphp/admin.php/admin/user/info.html">个人设置</a></dd>
+                    <dd><a href="/hisiphp/admin.php/admin/user/iframe/val/1.html" class="j-ajax" refresh="yes">框架布局</a></dd>
+                    <dd><a href="/hisiphp/admin.php/admin/publics/logout.html">退出登陆</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="/hisiphp/" target="_blank">前台</a></li>
+            <li class="layui-nav-item"><a href="/hisiphp/admin.php/admin/index/clear.html" class="j-ajax" refresh="yes">清缓存</a></li>
+            <li class="layui-nav-item"><a href="javascript:void(0);" id="lockScreen">锁屏</a></li>
+        </ul>
+    </div>
+    <div class="layui-side layui-bg-black" id="switchNav">
+        <div class="layui-side-scroll">
+            <ul class="layui-nav layui-nav-tree">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;"><i class="aicon ai-caidan"></i>快捷菜单<span class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a class="admin-nav-item" href="/hisiphp/admin.php/admin/index/index.html">
+                                <i class="aicon ai-shouye"></i> 后台首页
+                            </a>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+            <ul class="layui-nav layui-nav-tree" style="display:none;">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;"><i class="aicon ai-gongneng"></i>系统功能<span class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a class="admin-nav-item" href="/hisiphp/admin.php/admin/system/index.html"><i class="aicon ai-icon01"></i> 系统设置</a></dd>
+                        <dd><a class="admin-nav-item" href="/hisiphp/admin.php/admin/config/index.html"><i class="aicon ai-peizhiguanli"></i> 配置管理</a></dd>
+                        <dd><a class="admin-nav-item" href="/hisiphp/admin.php/admin/menu/index.html"><i class="aicon ai-systemmenu"></i> 系统菜单</a></dd>
+                        <dd><a class="admin-nav-item" href="/hisiphp/admin.php/admin/user/index.html"><i class="aicon ai-tubiao05"></i> 系统管理员</a></dd>
+                        <dd><a class="admin-nav-item" href="/hisiphp/admin.php/admin/log/index.html"><i class="aicon ai-xitongrizhi-tiaoshi"></i> 系统日志</a></dd>
+                        <dd><a class="admin-nav-item" href="/hisiphp/admin.php/admin/database/index.html"><i class="aicon ai-shujukuguanli"></i> 数据库管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item ">
+                    <a href="javascript:;"><i class="aicon ai-huiyuanliebiao"></i>会员管理<span class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a class="admin-nav-item" href="/hisiphp/admin.php/admin/member/level.html"><i class="aicon ai-huiyuandengji"></i> 会员等级</a></dd>
+                        <dd><a class="admin-nav-item" href="/hisiphp/admin.php/admin/member/index.html"><i class="aicon ai-huiyuanliebiao"></i> 会员列表</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item ">
+                    <a href="javascript:;"><i class="aicon ai-shezhi"></i>系统扩展<span class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a class="admin-nav-item" href="/hisiphp/admin.php/admin/module/index.html"><i class="aicon ai-mokuaiguanli1"></i> 模块管理</a></dd>
+                            <dd><a class="admin-nav-item" href="/hisiphp/admin.php/admin/plugins/index.html"><i class="aicon ai-chajianguanli"></i> 插件管理</a></dd>
+                            <dd><a class="admin-nav-item" href="/hisiphp/admin.php/admin/hook/index.html"><i class="aicon ai-icon-test"></i> 钩子管理</a></dd>
+                            <dd><a class="admin-nav-item" href="/hisiphp/admin.php/admin/upgrade/index.html"><i class="aicon ai-iconfontshengji"></i> 在线升级</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item ">
+                    <a href="javascript:;"><i class="aicon ai-doubleleft"></i>开发专用<span class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a class="admin-nav-item" href="/hisiphp/admin.php/admin/develop/lists.html"><i class=""></i> [示例]列表模板</a></dd>
+                            <dd><a class="admin-nav-item" href="/hisiphp/admin.php/admin/develop/edit.html"><i class=""></i> [示例]编辑模板</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <ul class="layui-nav layui-nav-tree" style="display:none;">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;"><i class="aicon ai-mokuaiguanli"></i>插件列表<span class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child">
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="layui-body" id="switchBody">
