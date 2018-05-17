@@ -17,9 +17,9 @@ return [
     // 数据库名
     'database'        => 'yjwechat',
     // 用户名
-    'username'        => 'root',
+    'username'        => 'yjwechat',
     // 密码
-    'password'        => '',
+    'password'        => '123456',
     // 端口
     'hostport'        => '3306',
     // 连接dsn
