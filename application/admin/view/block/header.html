@@ -35,7 +35,7 @@ $ca = strtolower(request()->controller().'/'.request()->action());
                 </dl>
             </li>
             <li class="layui-nav-item"><a href="/hisiphp/" target="_blank">前台</a></li>
-            <li class="layui-nav-item"><a href="/hisiphp/admin.php/admin/index/clear.html" class="j-ajax" refresh="yes">清缓存</a></li>
+            <li class="layui-nav-item"><a href="{:url('admin/index/clear')}" class="j-ajax" refresh="yes">清缓存</a></li>
             <li class="layui-nav-item"><a href="javascript:void(0);" id="lockScreen">锁屏</a></li>
         </ul>
     </div>
