@@ -29,11 +29,19 @@ class Index extends Admin
         return $this->success('缓存清理成功！');
     }
 
+    private function _clear() {
+        if( $this -> _delDir( RUNTIME_PATH . DS . "cache" ) === false ) return false ;
+        if( $this -> _delDir( RUNTIME_PATH . DS . "temp" ) === false ) return false ;
+        if( $this -> _delDir( RUNTIME_PATH . DS . "log" ) === false ) return false ;
+
+        return true ;
+    }
+
     /**
      * 删除目录（包括下面的文件）
      * @return void
      */
-    private function _clear( $directory = RUNTIME_PATH, $subdir = true ) 
+    private function _delDir( $directory, $subdir = true ) 
     {
         if (is_dir($directory) == false) {
             return false;
@@ -42,7 +50,7 @@ class Index extends Admin
         while (($file = readdir($handle)) !== false) {
             if ($file != "." && $file != "..") {
                 is_dir("$directory/$file") ?
-                                $this->_clear("$directory/$file") :
+                                $this->_delDir("$directory/$file") :
                                 @unlink("$directory/$file");
             }
         }
